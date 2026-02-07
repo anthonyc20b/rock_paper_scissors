@@ -1,9 +1,8 @@
 //let randomNumber = prompt("Enter test number:"); // - Used to manually test number ranges when 
-// included with commenting out the below random number logic generator. - Remove at launch
-
-let randomNumber = Math.floor((Math.random()* 100)+ 2);
+// included with commenting out the below random number logic generator.
 
 function getComputerChoice() {
+    let randomNumber = Math.floor((Math.random()* 100)+ 2);
     let computerChoice = "";
     if (randomNumber <= 33) {
         computerChoice = "Rock";
@@ -24,10 +23,10 @@ function getHumanChoice() {
     return humanChoice;
 }
 
-function playGame() {
-
 let humanScore = 0;
 let computerScore = 0;
+
+function playGame() {
 
 function playRound (humanChoice, computerChoice){
     if (humanChoice === "Rock" && computerChoice === "Paper"){
@@ -63,4 +62,16 @@ playRound(humanSelection, computerSelection);
 
 for (let roundNumber = 0; roundNumber < 5; roundNumber++){
     playGame();
+    console.log("The current score is: " + humanScore + " for the human and " + computerScore + " for the computer!")
 }
+
+function gameWinner(){
+    if (humanScore > computerScore) {
+        console.log("Congratulations you win!");
+    } else if (computerScore > humanScore) {
+        console.log("Sorry, you lost!");
+    } else if (humanScore === computerScore){
+        console.log("Wow! It's a tie!");
+    }
+}
+gameWinner();
