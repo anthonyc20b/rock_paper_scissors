@@ -32,6 +32,14 @@ function getHumanChoice() {
     return humanChoice;
 }
 
+function getRoundChoice (){
+    let getRoundChoice = prompt("How many rounds would you like to play?");
+    let roundChoice = parseInt(getRoundChoice);
+    console.log("The human would like to play: ", roundChoice, " rounds!");
+    return roundChoice;
+}
+const roundChoice = getRoundChoice();
+
 // We are declaring these variables in the global scope so we can have multiple functions access them and store data for scoring.
 
 let humanScore = 0;
@@ -83,9 +91,11 @@ playRound(humanSelection, computerSelection);
 is then checked at what number round we are currently at, and incremented after each round. Repeating the playGame function
 that is being called and outputting in the console what the current standings are. 
 */
-for (let roundNumber = 0; roundNumber < 5; roundNumber++){
+
+for (let roundNumber = 0; roundNumber < roundChoice; roundNumber++){
     playGame();
-    console.log("The current score is: " + humanScore + " for the human and " + computerScore + " for the computer!")
+    console.log(`We are on round number ${roundNumber + 1} and the current score is: ` + humanScore 
+        + " for the human and " + computerScore + " for the computer!")
 }
 
 /* Finally this function of course decides who the game winner is. By taking the humanScore and computerScore
