@@ -1,10 +1,10 @@
-//let randomNumber = prompt("Enter test number:"); // - Used to manually test number ranges when 
-// included with commenting out the below random number logic generator.
-
 /* First we must get the computers choice. We have the formula determine a random number, then each possibility has a 
 assigned number range. When the if/else statement runs it picks a number, finds which range is true, then assigns
 that outcome string into the variable computerChoice, then displaying that to the user and saving it for later.
 And of course finally displaying the computer choice to the user. */
+
+let humanScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     // Used to get a random number between 1 and 102, extra 2 is added for an equal 33 number chances for each outcome
@@ -26,31 +26,26 @@ function getComputerChoice() {
 need to be factored in later but could be done by changing whatever the result loggeed to humanChoice is by converting to
 lower case. This now gets the answer from the prompt, stores it for later in humanChoice, and displays the choice to the user
 */
-function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, or Scissors?");
-    console.log("The human selected: ", humanChoice);
-    return humanChoice;
-}
+  
+const humanChoiceButtons = document.querySelectorAll(".btn-human");
+    for (let button of humanChoiceButtons) {
+    button.addEventListener("click", () => {
+    console.log("The human selected: ", button.textContent);
+        });
+    }
+
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+// playRound(humanSelection, computerSelection);
 
 function getRoundChoice (){
-    let getRoundChoice = prompt("How many rounds would you like to play?");
+    // let getRoundChoice = prompt("How many rounds would you like to play?");
+    let getRoundChoice = 1;
     let roundChoice = parseInt(getRoundChoice);
     console.log("The human would like to play: ", roundChoice, " rounds!");
     return roundChoice;
 }
 const roundChoice = getRoundChoice();
-
-// We are declaring these variables in the global scope so we can have multiple functions access them and store data for scoring.
-
-let humanScore = 0;
-let computerScore = 0;
-
-
-/* Play game houses all of the logic. It takes the stored return values of computerChoice and humanChoice in as parameters and
-compares them through each of the possible odds of rock, paper scissors. Then displaying the outcome via a string in the console
-and incrementing either the human or computer score.
-*/
-function playGame() {
 
 function playRound (humanChoice, computerChoice){
     if (humanChoice === "Rock" && computerChoice === "Paper"){
@@ -80,36 +75,38 @@ function playRound (humanChoice, computerChoice){
     }
 }
 
+/* Play game houses all of the logic. It takes the stored return values of computerChoice and humanChoice in as parameters and
+compares them through each of the possible odds of rock, paper scissors. Then displaying the outcome via a string in the console
+and incrementing either the human or computer score.
+*/
+// function playGame() {}
+
 /*This is used to actually call the result. We are calling on the function result of getHumanChoice and getComputerChoice
 here so that we can then call on playround to give us the round of each game. */
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
-}
 
 /* This for loop is used to allow us to have multiple rounds. Right now limited to 5 rounds, the round starts at 0
 is then checked at what number round we are currently at, and incremented after each round. Repeating the playGame function
 that is being called and outputting in the console what the current standings are. 
 */
 
-for (let roundNumber = 0; roundNumber < roundChoice; roundNumber++){
-    playGame();
-    console.log(`We are on round number ${roundNumber + 1} and the current score is: ` + humanScore 
-        + " for the human and " + computerScore + " for the computer!")
-}
+// for (let roundNumber = 0; roundNumber < roundChoice; roundNumber++){
+//     playGame();
+//     console.log(`We are on round number ${roundNumber + 1} and the current score is: ` + humanScore 
+//         + " for the human and " + computerScore + " for the computer!")
+// }
 
 /* Finally this function of course decides who the game winner is. By taking the humanScore and computerScore
 variables and comparing them to each other to decide if the user wins or loses and outputs to the console the message. 
 Finally at the end calling to run the gameWinner function.
 */
 
-function gameWinner(){
-    if (humanScore > computerScore) {
-        console.log("Congratulations you win!");
-    } else if (computerScore > humanScore) {
-        console.log("Sorry, you lost!");
-    } else if (humanScore === computerScore){
-        console.log("Wow! It's a tie!");
-    }
-}
-gameWinner();
+// function gameWinner(){
+//     if (humanScore > computerScore) {
+//         console.log("Congratulations you win!");
+//     } else if (computerScore > humanScore) {
+//         console.log("Sorry, you lost!");
+//     } else if (humanScore === computerScore){
+//         console.log("Wow! It's a tie!");
+//     }
+// }
+// gameWinner();
