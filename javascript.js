@@ -30,7 +30,12 @@ lower case. This now gets the answer from the prompt, stores it for later in hum
 const humanChoiceButtons = document.querySelectorAll(".btn-human");
     for (let button of humanChoiceButtons) {
     button.addEventListener("click", () => {
-    console.log("The human selected: ", button.textContent);
+    
+    const humanChoice = button.textContent;
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+
+    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
         });
     }
 
