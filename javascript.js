@@ -26,18 +26,28 @@ function getComputerChoice() {
 need to be factored in later but could be done by changing whatever the result loggeed to humanChoice is by converting to
 lower case. This now gets the answer from the prompt, stores it for later in humanChoice, and displays the choice to the user
 */
-  
+
+const scoreDisplay = document.querySelector("#round");
+const computerChoiceDisplay = document.querySelector("#computer");
+const humanChoiceDisplay = document.querySelector("#human")
+
 const humanChoiceButtons = document.querySelectorAll(".btn-human");
     for (let button of humanChoiceButtons) {
     button.addEventListener("click", () => {
     
     const humanChoice = button.textContent;
+    console.log("The human selected: ", humanChoice)
+
     const computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
 
-    console.log(`Score: Human ${humanScore} - Computer ${computerScore}`);
+    scoreDisplay.textContent = `Score: Human ${humanScore} - Computer ${computerScore}`;
+    computerChoiceDisplay.textContent = "Computer choice: " + computerChoice;
+    humanChoiceDisplay.textContent = "Select your choice: " + humanChoice;
+
         });
     }
+
 
 // const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
@@ -47,7 +57,7 @@ function getRoundChoice (){
     // let getRoundChoice = prompt("How many rounds would you like to play?");
     let getRoundChoice = 1;
     let roundChoice = parseInt(getRoundChoice);
-    console.log("The human would like to play: ", roundChoice, " rounds!");
+    // console.log("The human would like to play: ", roundChoice, " rounds!");
     return roundChoice;
 }
 const roundChoice = getRoundChoice();
