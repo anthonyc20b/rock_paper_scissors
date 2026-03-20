@@ -38,10 +38,11 @@ function getRoundChoice (){
 let roundsPlayed = 0;
 const roundChoice = getRoundChoice();
 
-const scoreDisplay = document.querySelector("#round");
+const scoreDisplay = document.querySelector("#score");
 const computerChoiceDisplay = document.querySelector("#computer");
-const humanChoiceDisplay = document.querySelector("#human")
-const winnerDisplay = document.querySelector("#winner")
+const humanChoiceDisplay = document.querySelector("#human");
+const winnerDisplay = document.querySelector("#winner");
+const roundDisplay = document.querySelector("#round");
 
 const humanChoiceButtons = document.querySelectorAll(".btn-human");
     for (let button of humanChoiceButtons) {
@@ -56,18 +57,20 @@ const humanChoiceButtons = document.querySelectorAll(".btn-human");
     scoreDisplay.textContent = `Score: Human ${humanScore} - Computer ${computerScore}`;
     computerChoiceDisplay.textContent = "Computer choice: " + computerChoice;
     humanChoiceDisplay.textContent = "Select your choice: " + humanChoice;
+    roundDisplay.textContent = "Current Round: " + (roundsPlayed + 1);
 
     roundsPlayed++;
+
     if (roundsPlayed === roundChoice) {
         console.log("Game over!");
 
     function gameWinner(){
         if (humanScore > computerScore) {
-            winnerDisplay.textContent = "Congratulations you win!";
+            winnerDisplay.textContent = "The winner is: You!";
         } else if (computerScore > humanScore) {
-            winnerDisplay.textContent = "Sorry, you lost!";
+            winnerDisplay.textContent = "The winner is: Computer!";
         } else if (humanScore === computerScore){
-            winnerDisplay.textContent = "Wow! It's a tie!";
+            winnerDisplay.textContent = "The winner is: A tie!";
         }
             }
     gameWinner();
