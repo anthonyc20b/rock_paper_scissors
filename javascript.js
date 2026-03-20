@@ -34,6 +34,8 @@ function getRoundChoice (){
     // console.log("The human would like to play: ", roundChoice, " rounds!");
     return roundChoice;
 }
+
+let roundsPlayed = 0;
 const roundChoice = getRoundChoice();
 
 const scoreDisplay = document.querySelector("#round");
@@ -54,13 +56,11 @@ const humanChoiceButtons = document.querySelectorAll(".btn-human");
     computerChoiceDisplay.textContent = "Computer choice: " + computerChoice;
     humanChoiceDisplay.textContent = "Select your choice: " + humanChoice;
 
-    for (let roundNumber = 0; roundNumber < roundChoice; roundNumber++){
-    console.log(`We are on round number ${roundNumber + 1} and the current score is: ` + humanScore 
-        + " for the human and " + computerScore + " for the computer!")
-        }
-
-        });
+    roundsPlayed++;
+    if (roundsPlayed === roundChoice) {
+        console.log("Game over!");
     }
+        });}
 
 
 // const humanSelection = getHumanChoice();
