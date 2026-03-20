@@ -41,6 +41,7 @@ const roundChoice = getRoundChoice();
 const scoreDisplay = document.querySelector("#round");
 const computerChoiceDisplay = document.querySelector("#computer");
 const humanChoiceDisplay = document.querySelector("#human")
+const winnerDisplay = document.querySelector("#winner")
 
 const humanChoiceButtons = document.querySelectorAll(".btn-human");
     for (let button of humanChoiceButtons) {
@@ -59,9 +60,20 @@ const humanChoiceButtons = document.querySelectorAll(".btn-human");
     roundsPlayed++;
     if (roundsPlayed === roundChoice) {
         console.log("Game over!");
-    }
-        });}
 
+    function gameWinner(){
+        if (humanScore > computerScore) {
+            winnerDisplay.textContent = "Congratulations you win!";
+        } else if (computerScore > humanScore) {
+            winnerDisplay.textContent = "Sorry, you lost!";
+        } else if (humanScore === computerScore){
+            winnerDisplay.textContent = "Wow! It's a tie!";
+        }
+            }
+    gameWinner();
+            }
+
+        });}
 
 // const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
@@ -113,14 +125,3 @@ that is being called and outputting in the console what the current standings ar
 variables and comparing them to each other to decide if the user wins or loses and outputs to the console the message. 
 Finally at the end calling to run the gameWinner function.
 */
-
-// function gameWinner(){
-//     if (humanScore > computerScore) {
-//         console.log("Congratulations you win!");
-//     } else if (computerScore > humanScore) {
-//         console.log("Sorry, you lost!");
-//     } else if (humanScore === computerScore){
-//         console.log("Wow! It's a tie!");
-//     }
-// }
-// gameWinner();
