@@ -27,6 +27,15 @@ need to be factored in later but could be done by changing whatever the result l
 lower case. This now gets the answer from the prompt, stores it for later in humanChoice, and displays the choice to the user
 */
 
+function getRoundChoice (){
+    // let getRoundChoice = prompt("How many rounds would you like to play?");
+    let getRoundChoice = 5;
+    let roundChoice = parseInt(getRoundChoice);
+    // console.log("The human would like to play: ", roundChoice, " rounds!");
+    return roundChoice;
+}
+const roundChoice = getRoundChoice();
+
 const scoreDisplay = document.querySelector("#round");
 const computerChoiceDisplay = document.querySelector("#computer");
 const humanChoiceDisplay = document.querySelector("#human")
@@ -45,6 +54,11 @@ const humanChoiceButtons = document.querySelectorAll(".btn-human");
     computerChoiceDisplay.textContent = "Computer choice: " + computerChoice;
     humanChoiceDisplay.textContent = "Select your choice: " + humanChoice;
 
+    for (let roundNumber = 0; roundNumber < roundChoice; roundNumber++){
+    console.log(`We are on round number ${roundNumber + 1} and the current score is: ` + humanScore 
+        + " for the human and " + computerScore + " for the computer!")
+        }
+
         });
     }
 
@@ -52,15 +66,6 @@ const humanChoiceButtons = document.querySelectorAll(".btn-human");
 // const humanSelection = getHumanChoice();
 // const computerSelection = getComputerChoice();
 // playRound(humanSelection, computerSelection);
-
-function getRoundChoice (){
-    // let getRoundChoice = prompt("How many rounds would you like to play?");
-    let getRoundChoice = 1;
-    let roundChoice = parseInt(getRoundChoice);
-    // console.log("The human would like to play: ", roundChoice, " rounds!");
-    return roundChoice;
-}
-const roundChoice = getRoundChoice();
 
 function playRound (humanChoice, computerChoice){
     if (humanChoice === "Rock" && computerChoice === "Paper"){
@@ -103,12 +108,6 @@ here so that we can then call on playround to give us the round of each game. */
 is then checked at what number round we are currently at, and incremented after each round. Repeating the playGame function
 that is being called and outputting in the console what the current standings are. 
 */
-
-// for (let roundNumber = 0; roundNumber < roundChoice; roundNumber++){
-//     playGame();
-//     console.log(`We are on round number ${roundNumber + 1} and the current score is: ` + humanScore 
-//         + " for the human and " + computerScore + " for the computer!")
-// }
 
 /* Finally this function of course decides who the game winner is. By taking the humanScore and computerScore
 variables and comparing them to each other to decide if the user wins or loses and outputs to the console the message. 
