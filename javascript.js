@@ -74,6 +74,10 @@ const humanChoiceButtons = document.querySelectorAll(".btn-human");
         }
             }
     gameWinner();
+
+    humanChoiceButtons.forEach(button => {
+        button.disabled = true;
+    });
             }
 
         });}
