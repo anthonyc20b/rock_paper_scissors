@@ -28,7 +28,7 @@ lower case. This now gets the answer from the prompt, stores it for later in hum
 */
 
 function getRoundChoice (){
-    // let getRoundChoice = prompt("How many rounds would you like to play?");
+    // let getRoundChoice = prompt("How many rounds would you like to play?"); Feature removed temporarily to set at just 5 rounds flat.
     let getRoundChoice = 5;
     let roundChoice = parseInt(getRoundChoice);
     // console.log("The human would like to play: ", roundChoice, " rounds!");
